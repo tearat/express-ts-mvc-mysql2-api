@@ -1,0 +1,23 @@
+{
+  "name": "express_app_1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "watch:app": "nodemon --ext js --watch src",
+    "watch:less": "less-watch-compiler src/assets/less/ src/assets/css"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "consolidate": "^0.15.1",
+    "express": "^4.17.1",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.1.0",
+    "nodemon": "^2.0.2",
+    "swig": "^1.4.2",
+    "sync-mysql": "^3.0.1"
+  }
+}

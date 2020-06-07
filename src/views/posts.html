@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include "./_head.html" %}
+    <title>Posts page</title>
+</head>
+<body>
+    {% include "./_nav.html" %}
+    <h1>Posts page!</h1>
+    <hr>
+    {% for post in posts %}
+        <li>
+            <a href="/posts/{{ post.id }}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+</body>
+</html>
