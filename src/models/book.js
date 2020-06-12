@@ -22,16 +22,16 @@ const Book = {
             const [rows, fields] = await database.promise().query(sql)
             return rows
         } else {
-            return { "error": "Error. Fields not send" }
+            return { "error": "Create error. Fields not send" }
         }
     },
     update: async (id, data) => {
-        if( data.title && data.author ) {
+        if( data.isbn && data.title && data.author ) {
             let sql = `update books set isbn = '${data.isbn}', title = '${data.title}', author = '${data.author}' where id = ${id};`
             const [rows, fields] = await database.promise().query(sql)
             return rows
         } else {
-            return { "error": "Error. Fields not send" }
+            return { "error": "Update error. Fields not send" }
         }
     },
     delete: async (id, data) => {

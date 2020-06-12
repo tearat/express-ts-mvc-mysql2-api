@@ -2,14 +2,13 @@ var mysql = require('mysql2');
 
 const config = require('../../config')
 
-var connection = mysql.createConnection(config.database)
+var pool = mysql.createPool(config.database)
+console.log('Pool created');
+console.log(new Date().toLocaleTimeString())
 
-connection.connect((err) => {
-    if (err) {
-        console.log('Error connecting to DB');
-        return;
-    }
-    console.log('Connection established');
-});
+pool.on('error', function(err){
+    console.log("Database dead")
+    console.log(new Date().toLocaleTimeString())
+})
 
-module.exports = connection
+module.exports = pool

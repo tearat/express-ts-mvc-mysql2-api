@@ -9,7 +9,6 @@ router.use(bodyParser.urlencoded({
 router.use(bodyParser.json())
 
 router.get('/api', (req, res) => res.send({ status: "API ready" }) )
-
 router.get('/api/books', async (req, res) => booksController.all(req, res) )
 router.get('/api/books/:id', async (req, res) => booksController.find(req, res) )
 router.get('/api/books/isbn/:isbn', async (req, res) => booksController.findByIsbn(req, res) )

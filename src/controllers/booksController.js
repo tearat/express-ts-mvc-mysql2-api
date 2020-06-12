@@ -10,7 +10,7 @@ const booksController = {
         if( !result.length ) {
             res.sendStatus(404)
         } else {
-            res.json(result)
+            res.json(result[0])
         }
     },
     findByIsbn: async (req, res) => {
@@ -18,7 +18,7 @@ const booksController = {
         if( !result.length ) {
             res.sendStatus(404)
         } else {
-            res.json(result)
+            res.json(result[0])
         }
     },
     create: async (req, res, data) => {
