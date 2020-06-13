@@ -24,7 +24,7 @@ const booksController = {
     create: async (req, res, data) => {
         const result = await Book.create(data)
         if( result.affectedRows == 1 ) {
-            res.send({ status: "Created" })
+            res.send({ status: "Created", insertId: result.insertId })
         } else {
             res.send({ status: result.error })
         }
