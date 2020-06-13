@@ -9,16 +9,17 @@ const Book = {
     find: async (id) => {
         let sql = `select * from books where id = ${id};`
         const [rows, fields] = await database.promise().query(sql)
-        return rows
+        return rows[0]
     },
     findByIsbn: async (isbn) => {
         let sql = `select * from books where isbn = ${isbn};`
         const [rows, fields] = await database.promise().query(sql)
-        return rows
+        return rows[0]
     },
     create: async (data) => {
         if( data.isbn && data.title && data.author ) {
-            let sql = `insert into books (isbn, title, author) values ('${data.isbn}', '${data.title}', '${data.author}');`
+            let image = data.image ? `'${data.image}'` : 'NULL'
+            let sql = `insert into books (isbn, title, author, image) values ('${data.isbn}', '${data.title}', '${data.author}', ${image});`
             const [rows, fields] = await database.promise().query(sql)
             return rows
         } else {
@@ -27,7 +28,8 @@ const Book = {
     },
     update: async (id, data) => {
         if( data.isbn && data.title && data.author ) {
-            let sql = `update books set isbn = '${data.isbn}', title = '${data.title}', author = '${data.author}' where id = ${id};`
+            let image = data.image ? `'${data.image}'` : 'NULL'
+            let sql = `update books set isbn = '${data.isbn}', title = '${data.title}', author = '${data.author}', image = '${data.image}' where id = ${id};`
             const [rows, fields] = await database.promise().query(sql)
             return rows
         } else {

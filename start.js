@@ -13,6 +13,7 @@ app.use(function(req, res, next) {
 });
 
 app.use(routes)
+app.use('/storage', express.static(__dirname + "/storage/"));
 
 app.listen(config.server.port, () => console.log(`>>> Server starts (port ${config.server.port})`))
     .on('error', error => console.warn(error))
