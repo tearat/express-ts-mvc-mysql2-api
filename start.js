@@ -1,7 +1,10 @@
 const express = require('express')
 const routes = require('./src/routes/routes')
-const config = require('./config')
 const bodyParser = require('body-parser')
+const path = require('path')
+
+const envRealPath = path.resolve(__dirname, '.env')
+require('dotenv').config( {path: envRealPath} )
 
 const app = express()
 
@@ -15,5 +18,5 @@ app.use(function(req, res, next) {
 app.use(routes)
 app.use('/storage', express.static(__dirname + "/storage/"));
 
-app.listen(config.server.port, () => console.log(`>>> Server starts (port ${config.server.port})`))
+app.listen(process.env.PORT, () => console.log(`>>> Server starts (port ${process.env.PORT})`))
     .on('error', error => console.warn(error))
