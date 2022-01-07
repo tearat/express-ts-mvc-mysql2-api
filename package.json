@@ -1,15 +1,16 @@
 {
-  "name": "express_app_1",
+  "name": "express-ts-mvc-mysql2",
   "version": "1.0.0",
   "description": "",
   "main": "start.js",
   "scripts": {
-    "start": "node ./start.js",
+    "start": "ts-node src/index.ts",
     "watch": "nodemon --ext js --watch src"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@types/express": "^4.17.13",
     "body-parser": "^1.19.0",
     "consolidate": "^0.15.1",
     "dotenv": "^8.2.0",
@@ -17,5 +18,9 @@
     "express-multipart-file-parser": "^0.1.2",
     "mysql2": "^2.1.0",
     "nodemon": "^2.0.2"
+  },
+  "devDependencies": {
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
   }
 }

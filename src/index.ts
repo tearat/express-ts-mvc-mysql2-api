@@ -1,5 +1,5 @@
 const express = require("express")
-const routes = require("./src/routes/routes")
+const routes = require("./routes/routes")
 const path = require("path")
 const bodyParser = require("body-parser")
 const fileParser = require("express-multipart-file-parser")
